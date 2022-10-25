@@ -1,0 +1,12 @@
+{% extends 'nazo/base.html' %}
+{% block title %}
+スタートページ
+{% endblock %}
+{% block content %}
+{% load static %}
+<img src="{% static 'nazo/nazo-illust.png' %}" alt="nazo-logo" class="w-full">
+<div class="flex justify-center mt-4">
+    <a href="{% url 'tutorial' %}"><button class="border-2 border-black text-2xl bg-rose-400 hover:bg-rose-300 p-2 px-4">スタート</button></a>
+</div>
+
+{% endblock %}

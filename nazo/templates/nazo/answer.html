@@ -1,0 +1,105 @@
+{% extends 'nazo/base.html' %}
+{% block title %}
+{% if last_nazo == True %}
+クリア！
+{% elif result == True %}
+【正解】 {{ title }}
+{% else %}
+【不正解】 {{ title }}
+{% endif %}
+{% endblock %}
+{% block content %}
+{% load static %}
+{% if result == True %}
+{% if tutorial == True %}
+<div class="mt-8">
+    <h1 class="text-2xl text-center">正解！</h1>
+    <p class="text-center p-3 my-5">おめでとう！<br>この調子で８つの謎を解き明かしていこう！</p>
+</div>
+<div class="border-2 border-black bg-gray-200 p-3 mx-2">
+    <h2 class="text-xl text-center leading-loose">次の謎が隠された場所は、</h2>
+    <h2 class="text-lg text-center leading-loose">{{ next_place }}</h2>
+</div>
+
+{% else %}
+{% if last_nazo == True %}
+<div class="flex justify-center mb-4">
+    <img src="{% static 'nazo/nazo-logo.png' %}" alt="nazo-logo" class="w-1/2">
+</div>
+<div class="border-2 border-white bg-[#579FAE] p-3 mx-2">
+    <h1 class="text-white text-lg text-center leading-loose">おめでとう！<br>「2つを1つに」することで<br>別々で混沌としていた世界を<br>元に戻すことが出来た。</h1>
+</div>
+<div>
+    <p class="p-1 py-4 text-sm md:text-lg text-red-600 text-center leading-loose tracking-tight">この画面を、受付した最初の場所の人に見せに行こう！</p>
+    <p class="p-1 pb-4 text-sm md:text-lg leading-loose tracking-tight">全ての謎を解いてパーツを揃えたことで、別々だった「INIAD」と「WELLB」<br>「和」と「パーティー」の2つの世界が一緒になり<br>大学祭の混乱を収め、元に戻すことができた。<br>INIADとWELLB、大学祭を2つに分ける<br>必要はなかったのだ。<br>これを機にINIADとWELLBは「赤羽台祭」とすることで<br>大学祭は落ち着きを取り戻したのであった…。<br><br>おしまい</p>
+</div>
+{% else %}
+<div class="border-4 border-[{{ border_color }}]">
+    <div class="border-2 border-[{{ border_color }}] m-1">
+        <div>
+            <p class="text-[{{ border_color }}] text-sm p-1 pb-3">この画面は必ずスクリーンショットで最後まで保存しておこう！</p>
+            <h1 class="text-2xl text-center">正解！</h1>
+            <p class="text-center p-3 my-5">おめでとう！謎を一つ解いたことで<br>一歩事件解決に近づいたようだ。</p>
+        </div>
+        {% if next_place != "" %}
+        <div class="border-2 border-black bg-gray-200 p-3 mx-2">
+            <h2 class="text-xl text-center leading-loose">次の謎が隠された場所は、</h2>
+            <h2 class="text-lg text-center leading-loose">{{ next_place }}</h2>
+        </div>
+        <div class="p-1 py-2 my-2">
+            <p class="text-[{{ border_color }}] text-sm">この画面は必ずスクリーンショットで最後まで保存しておこう！</p>
+        </div>
+        {% endif %}
+        <div class="m-3 mb-6 flex justify-between">
+            <div class="flex-1 flex items-center">
+                {% if next_place != "" %}
+                <p>いい調子だね！<br>次の場所でQRコードを探し、次の謎を解こう！</p>
+                {% else %}
+                <p>いい調子だね！次は最終問題だ！</p>
+                {% endif %}
+            </div>
+            <div class="flex-1">
+                <p class="text-center font-bold">{{ keyword }}</p>
+                <img src="../..{{ img.url }}">
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if next_place == "" %}
+<div class="flex justify-center">
+    <a href="{% url 'nazo' last_uuid_data %}" class="m-3 mt-6"><button class="border-2 border-black text-2xl bg-rose-400 hover:bg-rose-300 p-2 px-4">最終問題 へ</button></a>
+</div>
+{% endif %}
+
+{% endif %}
+{% else %}
+<div class="mt-8">
+    <h1 class="text-2xl text-center">不正解</h1>
+    <p class="text-center p-3 my-5">答えはそれではなかったようだ。<br>戻る を押してもう一度謎に挑戦してみよう。</p>
+</div>
+<div class="border-2 border-black bg-gray-200 p-3 mx-2">
+    <h2 class="text-xl text-center leading-loose">ヒント</h2>
+    <h2 class="text-lg text-center leading-loose">{{ hint }}</h2>
+    <div class="pt-6 flex justify-end">
+        <a href="{{request.META.HTTP_REFERER}}"><button class="border-2 border-black bg-[#5ba6b5] hover:bg-[#9bb0b4] text-sm p-1 px-3 modal-open">どうしても分からない方はこちら</button></a>
+    </div>
+</div>
+<div class="flex justify-center">
+    <a href="{{request.META.HTTP_REFERER}}" class="m-3 mt-6"><button class="border-2 border-black text-2xl bg-rose-400 hover:bg-rose-300 p-2 px-4">戻る</button></a>
+</div>
+<!-- モーダル本体 -->
+<div class="modal-container">
+	<div class="modal-body">
+		<!-- 閉じるボタン -->
+		<div class="modal-close">×</div>
+		<!-- モーダル内のコンテンツ -->
+		<div class="modal-content">
+			<p>{{ big_hint }}</p>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+{% endblock %}

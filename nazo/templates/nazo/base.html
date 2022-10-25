@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'nazo/favicon.ico' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="{% static 'nazo/modal.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'nazo/base.css' %}">
+    <title>{% block title %}{% endblock %} | 赤羽台の８つの謎</title>
+</head>
+
+<body class="bg-slate-200 flex flex-col min-h-screen bg-[#F5DA80]">
+    <main class="flex-grow">
+        <header>
+            <div class="z-50 fixed top-0 left-0 right-0 items-center bg-[#579FAE] p-2">
+                <div class="border-2 border-black flex justify-center">
+                    <img src="{% static 'nazo/nazo-title.png' %}" alt="inya" class="h-12 p-1">
+                </div>
+            </div>
+        </header>
+
+        <div class="mt-16 px-2 py-4">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="items-center bg-white">
+            <div class="flex justify-center">
+                <img src="{% static 'nazo/nazo-logo.png' %}" alt="inya" class="h-14">
+            </div>
+        </div>
+        <div class="items-center bg-slate-800 p-2">
+            <div class="text-center">
+                <p class="text-xs text-slate-400">© 2022 AKABANEDAI-FES</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

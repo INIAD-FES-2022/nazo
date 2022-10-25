@@ -1,0 +1,20 @@
+{% extends 'nazo/base.html' %}
+{% block title %}
+プロローグ
+{% endblock %}
+{% block content %}
+{% load static %}
+<div class="flex justify-center mb-4">
+    <img src="{% static 'nazo/nazo-logo.png' %}" alt="nazo-logo" class="w-1/2">
+</div>
+<div class="border-2 border-white bg-[#579FAE] p-3 mx-2">
+    <h1 class="text-white text-lg text-center leading-loose">これは、赤羽台の二つの大学祭で起きた<br>奇妙な事件を解決する物語...<br>君にはこの二つの大学祭を元に戻すため<br>数々の謎に挑戦してもらう</h1>
+</div>
+<div class="border-b-2 border-[#579FAE]">
+    <p class="p-1 py-4 text-sm md:text-lg leading-loose tracking-tight">2022年10月某日、赤羽台。<br>皆が待ちに待った、年に一度だけの大切なお祭りの日だ。<br>今日、赤羽台には二つの大学祭が存在する。<br>INIADこと情報連携学部と、<br>WELLBことライフデザイン学部。<br>二つのキャンパスで行われる二つの大学祭だ。<br>この大学祭、INIADでは「和」<br>WELLBでは「パーティー」という世界を創り上げてきた。<br>普段交わることのない、二つの別の世界だ。<br><br>だが、"奇妙な事件"は突然起きた。</p>
+</div>
+<div class="flex justify-center">
+    <a href="{% url 'nazo' uuid %}" class="m-3 mt-6"><button class="border-2 border-black text-2xl bg-rose-400 hover:bg-rose-300 p-2 px-4">チュートリアル へ</button></a>
+</div>
+
+{% endblock %}

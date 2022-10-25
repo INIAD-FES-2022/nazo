@@ -1,0 +1,72 @@
+{% extends 'nazo/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+{% load static %}
+{% if last_nazo == True %}
+<div class="border-4 border-[{{ border_color }}]">
+    <div class="border-2 border-[{{ border_color }}] m-1">
+        <div class="mt-8">
+            <h1 class="text-3xl text-center">{{ title }}</h1>
+            <div class="flex justify-center">
+                {% if difficulty == 1 %}
+                <img src="{% static 'nazo/star_1.png' %}" class="h-6 mt-1">
+                {% elif difficulty == 2 %}
+                <img src="{% static 'nazo/star_2.png' %}" class="h-6 mt-1">
+                {% elif difficulty == 3 %}
+                <img src="{% static 'nazo/star_3.png' %}" class="h-6 mt-1">
+                {% elif difficulty == 5 %}
+                <img src="{% static 'nazo/star_5.png' %}" class="h-6 mt-1">
+                {% else %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="m-5">
+            <p class="py-4 text-sm leading-loose tracking-tight">{{ minihint | safe }}</p>
+        </div>
+        <div class="flex justify-center mx-4">
+            <img src="..{{ img.url }}" alt="nazo" class="w-full mt-2">
+        </div>
+
+        <div class="m-4 mt-10">
+            <form action="{% url 'answer' answer_uuid %}" method="POST">{% csrf_token %}
+                <input type="text" name="player_answer" class="p-3 w-full" placeholder="「{{ input }}」でこたえを入力してね"></input>
+                <div class="flex justify-center m-5 ">
+                    <input type="submit" value="答える" class="border-2 border-black text-2xl bg-rose-400 hover:bg-rose-300 p-2 px-4"></input>
+                </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div>
+    <h1 class="text-xl text-center">{{ title }}</h1>
+    <div class="flex justify-center">
+        {% if difficulty == 1 %}
+        <img src="{% static 'nazo/star_1.png' %}" class="h-6 mt-1">
+        {% elif difficulty == 2 %}
+        <img src="{% static 'nazo/star_2.png' %}" class="h-6 mt-1">
+        {% elif difficulty == 3 %}
+        <img src="{% static 'nazo/star_3.png' %}" class="h-6 mt-1">
+        {% elif difficulty == 5 %}
+        <img src="{% static 'nazo/star_5.png' %}" class="h-6 mt-1">
+        {% else %}
+        {% endif %}
+    </div>
+</div>
+<div class="m-5">
+    <p class="py-4 text-sm leading-loose tracking-tight">{{ minihint | safe }}</p>
+</div>
+<div class="flex justify-center mx-4">
+    <img src="..{{ img.url }}" alt="nazo" class="w-full mt-2">
+</div>
+
+<div class="m-4 mt-10">
+    <form action="{% url 'answer' answer_uuid %}" method="POST">{% csrf_token %}
+        <input type="text" name="player_answer" class="p-3 w-full" placeholder="「{{ input }}」でこたえを入力してね"></input>
+        <div class="flex justify-center m-5 ">
+            <input type="submit" value="答える" class="border-2 border-black text-2xl bg-rose-400 hover:bg-rose-300 p-2 px-4"></input>
+        </div>
+</div>
+{% endif %}
+{% endblock %}
