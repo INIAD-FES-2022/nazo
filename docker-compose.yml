@@ -22,7 +22,7 @@ services:
         env_file:
             - ".env"
         volumes:
-            - ./nginx:/etc/nginx/conf.d/
+            - ./nginx/nginx.conf:/etc/nginx/templates/default.conf.template
             - static:$STATIC_ROOT
             - media:$MEDIA_ROOT
         links:
