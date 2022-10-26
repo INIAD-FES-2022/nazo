@@ -19,5 +19,5 @@ import nazo.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('nazo/', include('nazo.urls')),
+    path('', include('nazo.urls')),
 ]
