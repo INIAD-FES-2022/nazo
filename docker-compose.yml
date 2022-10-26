@@ -13,6 +13,8 @@ services:
             - ".env"
         volumes:
             - .:${APP_ROOT}
+            - static:$STATIC_ROOT
+            - media:$MEDIA_ROOT
         links: 
             - database
         restart: always
