@@ -1,6 +1,6 @@
 {% extends 'nazo/base.html' %}
 {% block title %}
-{% if last_nazo == True %}
+{% if last_nazo_check == True %}
 クリア！
 {% elif result == True %}
 【正解】 {{ title }}
@@ -22,7 +22,7 @@
 </div>
 
 {% else %}
-{% if last_nazo == True %}
+{% if last_nazo_check == True %}
 <div class="flex justify-center mb-4">
     <img src="{% static 'nazo/nazo-logo.png' %}" alt="nazo-logo" class="w-1/2">
 </div>
