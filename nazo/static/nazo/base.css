@@ -2,6 +2,12 @@ body {
     font-family: 'Kaisei HarunoUmi', sans-serif;
 }
 
+@supports (-webkit-touch-callout: none) {
+	.h-screen {
+		height: -webkit-fill-available;
+	}
+}
+
 /*モーダル本体の指定 + モーダル外側の背景の指定*/
 .modal-container{
 	position: fixed;
