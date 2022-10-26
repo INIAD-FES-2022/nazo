@@ -63,7 +63,7 @@ def answer(request, answer_id):
         hint = nazo.hint
         big_hint = nazo.big_hint
         tutorial = nazo.tutorial
-        last_nazo = nazo.last_nazo
+        last_nazo_check = nazo.last_nazo
         last_nazo_data = Nazo.objects.get(last_nazo=True)
         last_uuid_data = last_nazo_data.uuid
         try:
@@ -88,7 +88,7 @@ def answer(request, answer_id):
         "big_hint": big_hint,
         "tutorial": tutorial,
         "result": result,
-        "last_nazo": last_nazo,
-        "last_uuid": last_uuid_data,
+        "last_nazo_check": last_nazo_check,
+        "last_uuid_data": last_uuid_data,
     }    
     return render(request, 'nazo/answer.html', context)
