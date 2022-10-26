@@ -7,3 +7,4 @@ psycopg2==2.9.5
 python-fsutil==0.7.0
 sqlparse==0.4.3
 tzdata==2022.4
+gunicorn==20.1.0
