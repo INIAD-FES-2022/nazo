@@ -10,7 +10,7 @@ class Event(models.Model):
 class Search(models.Model):
     title = models.TextField(verbose_name="タイトル")
     text = models.TextField(verbose_name="本文")
-    memo = models.CharField(max_length=30, verbose_name=30)
+    memo = models.CharField(max_length=30, verbose_name="メモ")
     limit = models.CharField(max_length=30, verbose_name="制限時間")
     wait = models.BooleanField(default=False, verbose_name="待機画面用か")
     show = models.BooleanField(default=False, verbose_name="開催時公開")
