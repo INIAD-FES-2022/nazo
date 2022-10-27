@@ -22,6 +22,7 @@ def index(request):
         event = False
         title = "ERROR"
         text = "しばらく時間をおいてから再度お試しください"
+        limit = "ERROR"
 
     context = {
         "event": event,
