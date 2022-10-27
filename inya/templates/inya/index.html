@@ -1,6 +1,10 @@
 {% extends 'inya/base.html' %}
 {% block title %}
-スタートページ
+{% if event == True %}
+開催中！
+{% else %}
+未開催
+{% endif %}
 {% endblock %}
 {% block content %}
 {% load static %}
