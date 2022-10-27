@@ -41,15 +41,6 @@
             <h1 class="text-2xl text-center">正解！</h1>
             <p class="text-center p-3 my-5">おめでとう！謎を一つ解いたことで<br>一歩事件解決に近づいたようだ。</p>
         </div>
-        {% if next_place != "" %}
-        <div class="border-2 border-black bg-gray-200 p-3 mx-2">
-            <h2 class="text-xl text-center leading-loose">次の謎が隠された場所は、</h2>
-            <h2 class="text-lg text-center leading-loose">{{ next_place }}</h2>
-        </div>
-        <div class="p-1 py-2 my-2">
-            <p class="text-red-600 text-sm p-1 pb-3 text-center">この画面全体を必ずスクリーンショットで撮ろう！</p>
-        </div>
-        {% endif %}
         <div class="m-3 mb-6 flex justify-between">
             <div class="flex-1 flex items-center">
                 {% if next_place != "" %}
@@ -59,10 +50,19 @@
                 {% endif %}
             </div>
             <div class="flex-1">
-                <p class="text-center font-bold">{{ keyword }}</p>
                 <img src="../..{{ img.url }}">
+                <p class="text-center font-bold">{{ keyword }}</p>
             </div>
         </div>
+        {% if next_place != "" %}
+        <div class="border-2 border-black bg-gray-200 p-3 mx-2">
+            <h2 class="text-xl text-center leading-loose">次の謎が隠された場所は、</h2>
+            <h2 class="text-lg text-center leading-loose">{{ next_place }}</h2>
+        </div>
+        <div class="p-1 py-2 my-2">
+            <p class="text-red-600 text-sm p-1 pb-3 text-center">この画面全体を必ずスクリーンショットで撮ろう！</p>
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endif %}
@@ -77,7 +77,7 @@
 {% else %}
 <div class="mt-8">
     <h1 class="text-2xl text-center">不正解</h1>
-    <p class="text-center p-3 my-5">答えはそれではなかったようだ。<br>戻る を押してもう一度謎に挑戦してみよう。</p>
+    <p class="text-center p-3 my-5">答えはそれではなかったようだ。<br>戻る を押してもう一度謎に挑戦しよう。</p>
 </div>
 <div class="border-2 border-black bg-gray-200 p-3 mx-2">
     <h2 class="text-xl text-center leading-loose">ヒント</h2>

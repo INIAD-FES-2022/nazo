@@ -1,0 +1,10 @@
+body {
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+.text_stroke {
+    color: #000;
+    -webkit-text-stroke: 0.1px #9D5C1F;
+    text-stroke: 0.1px #9D5C1F;
+  }
+  
