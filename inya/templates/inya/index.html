@@ -1,0 +1,46 @@
+{% extends 'inya/base.html' %}
+{% block title %}
+スタートページ
+{% endblock %}
+{% block content %}
+{% load static %}
+{% if event == True %}
+<div class="px-2 py-4">
+    <div class="bg-orange-200 py-2 rounded-md">
+        <p class="text-xl text-center">{{ limit }}</p>
+    </div>
+    <div class="flex justify-between m-3">
+        <div class="flex-1 px-3">
+            <img src="{% static 'inya/get_inya.png' %}" alt="inya" class="flex items-center">
+        </div>
+        <div class="flex-1 text-center px-3 flex items-center justify-center">
+            {{ title | safe }}
+        </div>
+    </div>
+    <div class="text-center leading-loose py-3">
+        {{ text | safe }}
+    </div>
+</div>
+<div class="bg-white px-2 py-4">
+    <p class="text-center text-orange-600">チケットを手に入れたらマップの★の位置(1階)<br>に行って、お宝と交換してもらおう！</p>
+</div>
+<div class="px-2 py-4">
+    <img src="{% static 'inya/map.png' %}" alt="map" class="w-full">
+</div>
+{% else %}
+<div class="px-2 py-4">
+    <div class="flex justify-between m-3">
+        <div class="flex-1 px-3">
+            <img src="{% static 'inya/search_inya.png' %}" alt="inya" class="flex items-center">
+        </div>
+        <div class="flex-1 text-center px-3">
+            {{ title | safe }}
+        </div>
+    </div>
+    <div class="text-center leading-loose">
+        {{ text | safe }}
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

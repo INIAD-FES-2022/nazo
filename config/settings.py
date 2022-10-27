@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'maintenance_mode',
 
     'nazo',
+    'inya',
 ]
 
 MIDDLEWARE = [

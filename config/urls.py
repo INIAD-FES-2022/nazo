@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import nazo.views
+import nazo.views, inya.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('nazo/', include('nazo.urls')),
+    path('inya/', include('inya.urls')),
 ]
